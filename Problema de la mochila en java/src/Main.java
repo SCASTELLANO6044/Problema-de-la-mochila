@@ -4,19 +4,26 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        List<BackpackItem> backpackItemList = new ArrayList<>();
-        backpackItemList.add(new BackpackItem(2,3,4));
-        backpackItemList.add(new BackpackItem(3,4,3));
-        backpackItemList.add(new BackpackItem(4,5,2));
-        backpackItemList.add(new BackpackItem(5,6,1));
 
-        Integer capacity = 7;
+        String[] nombresArchivos = {"D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\1.txt",
+                "D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\2.txt",
+                "D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\3.txt"};
 
-        Map<Memoization.Index, Integer> memo = new HashMap<>();
+        List<Backpack> backpackList = FileInputReader.find(nombresArchivos);
 
-        System.out.println(("New Memoization Result: " + Memoization.execute(backpackItemList, capacity, backpackItemList.size(), memo)));
+        int i = 1;
+        for (Backpack backpack : backpackList){
+            System.out.println("New Memoization Result in "+i+".txt : "+ Memoization.execute(backpack.getItems(), backpack.getCapacity(), backpack.getItems().size(), new HashMap<>()));
+            System.out.println("********************************************************************************\n");
+            i++;
+        }
 
-        System.out.println("Tabulation result: " + Tabulation.execute(backpackItemList, capacity));
+        for (Backpack backpack : backpackList){
+            System.out.println("New Tabulation Result in "+i+".txt : "+ Tabulation.execute(backpack.getItems(), backpack.getCapacity()));
+            System.out.println("********************************************************************************\n");
+            i++;
+        }
+
 
     }
 }
