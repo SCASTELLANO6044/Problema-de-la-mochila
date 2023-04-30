@@ -28,7 +28,7 @@ public class Tabulation {
             if(table[i][k] != table[i-1][k]){
                 selectedItems.add(i);
                 i--;
-                k = k - table[i][k];
+                k = k - backpackItemList.get(i).getWeight();
             }else {
                 i--;
             }

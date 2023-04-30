@@ -10,7 +10,7 @@ public class Main {
         backpackItemList.add(new BackpackItem(4,5,2));
         backpackItemList.add(new BackpackItem(5,6,1));
 
-        Integer capacity = 5;
+        Integer capacity = 7;
 
         Map<Memoization.Index, Integer> memo = new HashMap<>();
 
