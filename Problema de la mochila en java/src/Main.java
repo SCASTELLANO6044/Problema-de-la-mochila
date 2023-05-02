@@ -7,7 +7,8 @@ public class Main {
 
         String[] nombresArchivos = {"D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\1.txt",
                 "D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\2.txt",
-                "D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\3.txt"};
+                "D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\3.txt",
+                "D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\4.txt"};
 
         List<Backpack> backpackList = FileInputReader.find(nombresArchivos);
 
