@@ -2,6 +2,10 @@ import java.util.*;
 
 public class Memoization {
 
+    private Memoization (){
+        throw new IllegalStateException("Utility class");
+    }
+
     public static Integer execute(List<BackpackItem> backpackItemList, Integer capacity, Integer positionIterator,
                                   Map<Memoization.Index, Integer> memo, Memoization.Index previousIndex){
         Memoization.Index index = new Index(positionIterator, capacity);

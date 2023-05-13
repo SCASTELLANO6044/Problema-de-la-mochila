@@ -6,6 +6,10 @@ import java.util.List;
 
 public class FileInputReader {
 
+    private FileInputReader (){
+        throw new IllegalStateException("Utility class");
+    }
+
     public static List<Backpack> find(String[] nombresArchivos){
         List<Backpack> backpackList = new ArrayList<>(nombresArchivos.length);
         for (String nombreArchivo : nombresArchivos) {

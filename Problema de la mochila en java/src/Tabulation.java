@@ -3,6 +3,10 @@ import java.util.List;
 
 public class Tabulation {
 
+    private Tabulation (){
+        throw new IllegalStateException("Utility class");
+    }
+
     public static Integer execute(List<BackpackItem> backpackItemList, Integer capacity){
         int[][] table  = new int[backpackItemList.size()+1] [capacity + 1];
 
