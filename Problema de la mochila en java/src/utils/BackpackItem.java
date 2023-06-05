@@ -1,3 +1,5 @@
+package utils;
+
 public class BackpackItem {
     private final int weight;
     private final int benefit;
@@ -19,7 +21,7 @@ public class BackpackItem {
 
     @Override
     public String toString() {
-        return "BackpackItem{" +
+        return "utils.BackpackItem{" +
                 "weight=" + weight +
                 ", benefit=" + benefit +
                 ", position=" + position +

@@ -1,3 +1,7 @@
+package dynamicprogramming;
+
+import utils.BackpackItem;
+
 import java.util.*;
 
 public class Memoization {
@@ -23,7 +27,7 @@ public class Memoization {
         }else {
             BackpackItem itemEvaluated = backpackItemList.get(currentPositionToEvaluate);
             positionIterator --;
-            Integer takenItem = execute(backpackItemList, capacity - itemEvaluated.getWeight(),positionIterator, memo, index) + itemEvaluated.getBenefit();
+            int takenItem = execute(backpackItemList, capacity - itemEvaluated.getWeight(),positionIterator, memo, index) + itemEvaluated.getBenefit();
             Integer notTakenItem = execute(backpackItemList, capacity, positionIterator, memo, index);
             previousIndex.setI(positionIterator);
             if(takenItem > notTakenItem){
@@ -38,13 +42,6 @@ public class Memoization {
         memo.put(index, result);
         return result;
     }
-
-//    private static Integer maximum(Integer a, Integer b){
-//        if (a > b){
-//            return a;
-//        }
-//        return b;
-//    }
 
     public static class Index {
         private int i;

@@ -1,3 +1,10 @@
+package main;
+
+import dynamicprogramming.Memoization;
+import dynamicprogramming.Tabulation;
+import utils.Backpack;
+import utils.FileInputReader;
+
 import java.util.*;
 
 
@@ -10,7 +17,7 @@ public class Main {
 //                "D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\3.txt",
 //                "D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\4.txt"};
 
-        String[] nombresArchivos = {"D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\4.txt"};
+        String[] nombresArchivos = {"C:\\GitHubProjects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\4.txt"};
 
         List<Backpack> backpackList = FileInputReader.find(nombresArchivos);
         Map<Memoization.Index, Integer> memo = new HashMap<>();

@@ -1,3 +1,7 @@
+package dynamicprogramming;
+
+import utils.BackpackItem;
+
 import java.util.ArrayList;
 import java.util.List;
 
