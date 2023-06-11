@@ -17,7 +17,7 @@ public class Main {
 //                "D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\3.txt",
 //                "D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\4.txt"};
 
-        String[] nombresArchivos = {"C:\\GitHubProjects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\4.txt"};
+        String[] nombresArchivos = {"C:\\GitHubProjects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\5.txt"};
 
         List<Backpack> backpackList = FileInputReader.find(nombresArchivos);
         Map<Memoization.Index, Integer> memo = new HashMap<>();

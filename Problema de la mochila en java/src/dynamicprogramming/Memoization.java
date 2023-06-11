@@ -28,7 +28,7 @@ public class Memoization {
             BackpackItem itemEvaluated = backpackItemList.get(currentPositionToEvaluate);
             positionIterator --;
             int takenItem = execute(backpackItemList, capacity - itemEvaluated.getWeight(),positionIterator, memo, index) + itemEvaluated.getBenefit();
-            Integer notTakenItem = execute(backpackItemList, capacity, positionIterator, memo, index);
+            int notTakenItem = execute(backpackItemList, capacity, positionIterator, memo, index);
             previousIndex.setI(positionIterator);
             if(takenItem > notTakenItem){
                 previousIndex.setW(capacity - itemEvaluated.getWeight());
