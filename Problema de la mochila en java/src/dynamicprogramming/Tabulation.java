@@ -13,7 +13,6 @@ public class Tabulation {
 
     public static Integer execute(List<BackpackItem> backpackItemList, Integer capacity){
         int[][] table  = new int[backpackItemList.size()+1] [capacity + 1];
-
         for (int i = 1; i < table.length; i++){
             for (int w = 1; w < table[0].length; w++){
                 if (backpackItemList.get(i-1).getWeight() <= w ){
