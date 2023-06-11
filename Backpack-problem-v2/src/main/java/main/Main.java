@@ -2,22 +2,19 @@ package main;
 
 import dynamicprogramming.Memoization;
 import dynamicprogramming.Tabulation;
+import utils.AlphanumericSortComparator;
 import utils.Backpack;
 import utils.FileInputReader;
 import utils.input.Switches;
 
+import java.io.File;
+import java.text.DecimalFormat;
 import java.util.*;
 
 
 public class Main {
 
     public static void main(String[] args) {
-
-//        String[] nombresArchivos = {"D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\1.txt",
-//                "D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\2.txt",
-//                "D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\3.txt",
-//                "D:\\Coding\\Github projects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\4.txt"};
-
 
         if (Switches.contains(args, "-h", "--help")) Switches.help();
 
@@ -35,23 +32,97 @@ public class Main {
             Switches.help();
         }
 
-        String[] nombresArchivos = {"C:\\GitHubProjects\\Problema-de-la-mochila\\Problema de la mochila en java\\input-files\\5.txt"};
+        boolean isDirectory = false;
+        String path = "";
 
-        List<Backpack> backpackList = FileInputReader.find(nombresArchivos);
-        Map<Memoization.Index, Integer> memo = new HashMap<>();
-        int i = 1;
-        for (Backpack backpack : backpackList){
-            System.out.println("New Memoization Result in "+i+".txt : "+ Memoization.execute(backpack.getItems(), backpack.getCapacity(), backpack.getItems().size(), memo, new Memoization.Index(0, 0)));
-            System.out.println("********************************************************************************\n");
-            i++;
+        if (Switches.contains(args, "-d", "--directory")){
+            isDirectory = true;
+            path = args[Switches.indexOf(args, "-d", "--directory") + 1];
+        } else if (Switches.contains(args, "-f", "--file")) {
+            path = args[Switches.indexOf(args, "-f", "--file") + 1];
+        }else {
+            Switches.help();
         }
 
-        for (Backpack backpack : backpackList){
-            System.out.println("New Tabulation Result in "+i+".txt : "+ Tabulation.execute(backpack.getItems(), backpack.getCapacity()));
-            System.out.println("********************************************************************************\n");
-            i++;
+        DecimalFormat df = new DecimalFormat("#.000000");
+        if (isDirectory){
+            File f = new File(path);
+            String[] files = f.list();
+            Comparator<String> numericalOrder = AlphanumericSortComparator.NUMERICAL_ORDER;
+            Arrays.sort(files, numericalOrder);
+            for (String file : files){
+                Backpack backpack = FileInputReader.find(path+file);
+                if (both){
+                    long startTime = System.currentTimeMillis();
+                    Map<Memoization.Index, Integer> memo = new HashMap<>();
+                    System.out.println("New Memoization Result in "+ file + " "+ Memoization.execute(backpack.getItems(),
+                            backpack.getCapacity(), backpack.getItems().size(), memo, new Memoization.Index(0, 0)));
+                    long finalTime = System.currentTimeMillis() - startTime;
+                    System.out.println("Time: " + df.format(finalTime / 1000.0) + " s");
+                    System.out.println("********************************************************************************\n");
+
+                    startTime = System.currentTimeMillis();
+                    System.out.println("New Tabulation Result in "+ file + " "+ Tabulation.execute(backpack.getItems(), backpack.getCapacity()));
+                    finalTime = System.currentTimeMillis() - startTime;
+                    System.out.println("Time: " + df.format(finalTime / 1000.0) + " s");
+                    System.out.println("********************************************************************************\n");
+
+                } else if (mem) {
+
+                    long startTime = System.currentTimeMillis();
+                    Map<Memoization.Index, Integer> memo = new HashMap<>();
+                    System.out.println("New Memoization Result in "+file + " "+ Memoization.execute(backpack.getItems(),
+                            backpack.getCapacity(), backpack.getItems().size(), memo, new Memoization.Index(0, 0)));
+                    long finalTime = System.currentTimeMillis() - startTime;
+                    System.out.println("Time: " + df.format(finalTime / 1000.0) + " s");
+                    System.out.println("********************************************************************************\n");
+
+                } else if (tab) {
+
+                    long startTime = System.currentTimeMillis();
+                    System.out.println("New Tabulation Result in "+file + " "+ Tabulation.execute(backpack.getItems(), backpack.getCapacity()));
+                    long finalTime = System.currentTimeMillis() - startTime;
+                    System.out.println("Time: " + df.format(finalTime / 1000.0) + " s");
+                    System.out.println("********************************************************************************\n");
+
+                }
+            }
+        }else {
+            Backpack backpack = FileInputReader.find(path);
+            if (both){
+                long startTime = System.currentTimeMillis();
+                Map<Memoization.Index, Integer> memo = new HashMap<>();
+                System.out.println("New Memoization Result in "+path + " "+ Memoization.execute(backpack.getItems(),
+                        backpack.getCapacity(), backpack.getItems().size(), memo, new Memoization.Index(0, 0)));
+                long finalTime = System.currentTimeMillis() - startTime;
+                System.out.println("Time: " + df.format(finalTime / 1000.0) + " s");
+                System.out.println("********************************************************************************\n");
+
+                startTime = System.currentTimeMillis();
+                System.out.println("New Tabulation Result in "+path + " "+ Tabulation.execute(backpack.getItems(), backpack.getCapacity()));
+                finalTime = System.currentTimeMillis() - startTime;
+                System.out.println("Time: " + df.format(finalTime / 1000.0) + " s");
+                System.out.println("********************************************************************************\n");
+
+            } else if (mem) {
+
+                long startTime = System.currentTimeMillis();
+                Map<Memoization.Index, Integer> memo = new HashMap<>();
+                System.out.println("New Memoization Result in "+path + " "+ Memoization.execute(backpack.getItems(),
+                        backpack.getCapacity(), backpack.getItems().size(), memo, new Memoization.Index(0, 0)));
+                long finalTime = System.currentTimeMillis() - startTime;
+                System.out.println("Time: " + df.format(finalTime / 1000.0) + " s");
+                System.out.println("********************************************************************************\n");
+
+            } else if (tab) {
+
+                long startTime = System.currentTimeMillis();
+                System.out.println("New Tabulation Result in "+path + " "+ Tabulation.execute(backpack.getItems(), backpack.getCapacity()));
+                long finalTime = System.currentTimeMillis() - startTime;
+                System.out.println("Time: " + df.format(finalTime / 1000.0) + " s");
+                System.out.println("********************************************************************************\n");
+
+            }
         }
-
-
     }
 }
