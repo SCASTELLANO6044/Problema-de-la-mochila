@@ -26,8 +26,6 @@ public class Tabulation {
                 }
             }
         }
-
-        //TODO: TRATAR DE ADAPTARLO EN MEMOIZATION DE LA MISMA MANERA
         int i = table.length-1;
         int k = table[0].length-1;
         List<Integer> selectedItems = new ArrayList<>();
@@ -40,9 +38,7 @@ public class Tabulation {
                 i--;
             }
         }
-
         System.out.println("Elements taken in tabulation: " + selectedItems);
-
         return table[table.length-1][table[0].length-1];
     }
 
