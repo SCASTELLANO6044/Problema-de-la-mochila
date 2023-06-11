@@ -16,7 +16,6 @@ public class Tabulation {
 
         for (int i = 1; i < table.length; i++){
             for (int w = 1; w < table[0].length; w++){
-                table[i][w] = 1;
                 if (backpackItemList.get(i-1).getWeight() <= w ){
                     Integer notTaken = table[i-1][w];
                     Integer taken = backpackItemList.get(i-1).getBenefit() + table[i-1][w - backpackItemList.get(i-1).getWeight()];
