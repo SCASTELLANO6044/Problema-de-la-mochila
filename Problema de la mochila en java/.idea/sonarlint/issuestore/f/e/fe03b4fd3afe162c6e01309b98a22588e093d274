@@ -1,0 +1,18 @@
+
+U
+java:S1854"8Remove this useless assignment to local variable "both".(žÒš¨8Öù¾ÜŠ1
+Y
+java:S1854"7Remove this useless assignment to local variable "mem".(öù˜³ùÿÿÿÿ8×ù¾ÜŠ1
+Y
+java:S1854!"7Remove this useless assignment to local variable "tab".(Œ”Â¯ùÿÿÿÿ8×ù¾ÜŠ1
+Q	java:S125"<This block of commented-out lines of code should be removed.(ØÓÐ
+J
+java:S1481"(Remove this unused "tab" local variable.(°²Šåûÿÿÿÿ8Ùù¾ÜŠ1
+J
+java:S1481"(Remove this unused "mem" local variable.(†¹ê—ÿÿÿÿÿ8Ùù¾ÜŠ1
+K
+java:S1481")Remove this unused "both" local variable.(îˆ¯¾úÿÿÿÿ8Ùù¾ÜŠ1
+N	java:S106,"9Replace this use of System.out or System.err by a logger.(²òõñ
+S	java:S106-"9Replace this use of System.out or System.err by a logger.(çÜò¢ûÿÿÿÿ
+M	java:S1062"9Replace this use of System.out or System.err by a logger.(…À¨}
+S	java:S1063"9Replace this use of System.out or System.err by a logger.(çÜò¢ûÿÿÿÿ

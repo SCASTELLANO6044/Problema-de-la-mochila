@@ -1,0 +1,7 @@
+
+k
+java:S1206A"PThis class overrides "equals()" and should therefore also override "hashCode()".(İ¢êÍıÿÿÿÿ
+w
+java:S14502"\Remove the "previousIndex" field and declare it as a local variable in the relevant methods.(î¼ÉØûÿÿÿÿ
+L
+java:S10682"1Remove this unused "previousIndex" private field.(î¼ÉØûÿÿÿÿ
